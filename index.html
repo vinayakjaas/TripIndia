@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>TripIndia</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- font awesome cdn -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- fonts -->
+        <link rel = "stylesheet" href = "font/fonts.css">
+        <!-- normalize css -->
+        <link rel = "stylesheet" href = "css/normalize.css">
+        <!-- custom css -->
+        <link rel = "stylesheet" href = "css/utility.css">
+        <link rel = "stylesheet" href = "css/style.css">
+        <link rel = "stylesheet" href = "css/responsive.css">
+   
+    </head>
+    <body>
+        <!-- navbar  -->
+        <nav class = "navbar">
+            <div class = "container flex">
+                <a href = "index.html" class = "site-brand">
+                    Trip<span>India</span>
+                </a>
+
+                <button type = "button" id = "navbar-show-btn" class = "flex">
+                    <i class = "fas fa-bars"></i>
+                </button>
+                <div id = "navbar-collapse">
+                    <button type = "button" id = "navbar-close-btn" class = "flex">
+                        <i class = "fas fa-times"></i>
+                    </button>
+                    <ul class = "navbar-nav">
+                        <li class = "nav-item">
+                            <a href = "index.html" class = "nav-link">Home</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "gallery.html" class = "nav-link">Gallery</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "blog.html" class = "nav-link">Blog</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "about.html" class = "nav-link">About</a>
+                        </li>
+                        <li class = "nav-item">
+                            <a href = "contact.html" class = "nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- end of navbar  -->
+
+        <!-- header -->
+        <header class = "flex">
+            <div class = "container">
+                <div class = "header-title">
+                    <h1>Find Your Perfect <i>Unexplored</i> Destination</h1>
+                    <p>Live with no excuses and travel with no regrets.</p>
+                </div>
+                <div class = "header-form">
+                    <h2>Choose your Travel location:</h2>
+                    <style>
+                        .dropbtn {
+                          background-color: transparent;
+                          color: white;
+                          padding: 16px;
+                          font-size: 16px;
+                          border: solid white;
+                          cursor: pointer;
+                          width: 255px;
+                        }
+                        
+                        .dropbtn:hover, .dropbtn:focus {
+                          background-color: #3e8e41;
+                        }
+                        
+                        #myInput {
+                          box-sizing: border-box;
+                          background-image: url('searchicon.png');
+                          background-position: 14px 12px;
+                          background-repeat: no-repeat;
+                          font-size: 16px;
+                          padding: 14px 20px 12px 45px;
+                          border: none;
+                          border-bottom: 1px solid black;
+                          background-color: black;
+                        }
+                        
+                        #myInput:focus {outline: 3px solid #ddd;}
+                        
+                        .dropdown {
+                          position: relative;
+                          display: inline-block;
+                        }
+                        
+                        .dropdown-content {
+                          display: none;
+                          position: absolute;
+                          background-color: black;
+                          min-width: 230px;
+                          overflow: auto;
+                          border: 1px solid #ddd;
+                          z-index: 1;
+                          Overflow-x:scroll;
+                          height: 400px
+                        }
+                        
+                        .dropdown-content a {
+                          color: white;
+                          padding: 12px 16px;
+                          text-decoration: none;
+                          display: block;
+                          background-color: transparent;
+                          
+                        }
+                        
+                        .dropdown a:hover {background-color: rgb(5, 5, 218);}
+                        
+                        .show {display: block;}
+                        </style>
+                        
+                        <!-- <h2>Search/Filter Dropdown</h2> 
+                        <p>Click on the button to open the dropdown menu, and use the input field to search for a specific dropdown link.</p> -->
+                        
+                        <div class="dropdown">
+                          <button onclick="myFunction()" class="dropbtn" >Select State</button>
+                          <div id="myDropdown" class="dropdown-content">
+                            <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                            <a href="Himachal Pradesh\himachal.html">Himachal Pradesh</a>
+                            <a href="Uttarakhand\uttarakhand.html">Uttarakhand</a>
+                            <a href="Telangana\telangana.html">Telangana</a>
+                            <a href="Kerala\kerala.html">Kerala</a>
+                            <a href="Karnataka\karnataka.html">Karnataka</a>
+                            <a href="Jammu and Kashmir\jammu.html">Jammu and Kashmir</a>
+                            <a href="Arunachal Pradesh\Arunachal Pradesh.html">Arunachal Pradesh</a>
+                            <a href="Rajasthan\rajasthan.html">Rajasthan</a>
+                            <a href="Gujarat\gujarat.html">Gujarat</a>
+                            <a href="Maharashtra\maharashtra.html">Maharashtra</a>
+                            <a href="Tamil Nadu\tamilnadu.html">Tamil Nadu</a>
+                            <a href="#tools">Madhya Pradesh</a>
+                            <a href="Punjab\punjab.html">Punjab</a>
+                            <a href="#tools">Pondicherry</a>
+                            <a href="Sikkim\sikkim.html">Sikkim</a>
+                          </div>
+                        </div>
+                        
+                        <script>
+                        /* When the user clicks on the button,
+                        toggle between hiding and showing the dropdown content */
+                        function myFunction() {
+                          document.getElementById("myDropdown").classList.toggle("show");
+                        }
+                        
+                        function filterFunction() {
+                          var input, filter, ul, li, a, i;
+                          input = document.getElementById("myInput");
+                          filter = input.value.toUpperCase();
+                          div = document.getElementById("myDropdown");
+                          a = div.getElementsByTagName("a");
+                          for (i = 0; i < a.length; i++) {
+                            txtValue = a[i].textContent || a[i].innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                              a[i].style.display = "";
+                            } else {
+                              a[i].style.display = "none";
+                            }
+                          }
+                        }
+                        </script>
+                    <!-- <form class = "flex">
+                         <input type = "text" class = "form-control" placeholder="Select State"> 
+                        <div class="box" width: 100px>
+                            <select>
+                              <option>Select State</option>
+                              <option value="Home"><a href="gallery.html" onclick="open">Arrunachal Pradesh</a></option>
+
+                              <option>Assam</option>
+                              <option>Bihar</option>
+                              <option>Chandigarh</option>
+                              <option>Chhattisgarh</option>
+                              <option>Delhi</option>
+                              <option>Goa</option>
+                              <option>Gujarat</option>
+                              <option>Haryana</option>
+                              <option>Himachal Pradesh</option>
+                              <option>Jammu and Kashmir</option>
+                              <option>Jharkhand</option>
+                              <option>Karnataka</option>
+                              <option>Kerala</option>
+                              <option>Madhya Pradesh</option>
+                              <option>Maharashtra</option>
+                              <option>Manipur</option>
+                              <option>Meghalaya</option>
+                              <option>Mizoram</option>
+                              <option>Nagaland</option>
+                              <option>Orissa</option>
+                              <option>Punjab</option>
+                              <option>Rajasthan</option>
+                              <option>Sikkim</option>
+                              <option>Tamil Nadu</option>
+                              <option>Telangana</option>
+                              <option>Tripura</option>
+                              <option>Uttar Pradesh</option>
+                              <option>Uttarakhand</option>
+                              <option>West Bengal</option>
+                            
+                              
+                            </select>
+                          </div>
+                        <input type="date" class = "form-control" placeholder="Date">
+                        <input type="submit" class = "btn" value = "Search">
+                    </form> -->
+                </div>
+            </div>
+        </header>
+        <!-- header -->
+
+        <!-- featured section -->
+        <section id = "featured" class = "py-4">
+            <div class = "container">
+                <div class = "title-wrap">
+                    <span class = "sm-title">know about some Unknown places before your travel</span>
+                    <h2 class = "lg-title">featured places</h2>
+                </div>
+
+                <div class = "featured-row">
+                    <div class = "featured-item my-2 shadow">
+                        <img src = "images/featured-reo-de-janeiro-brazil.jpg" alt = "featured place">
+                        <div class = "featured-item-content">
+                            <span>
+                                <i class = "fas fa-map-marker-alt"></i>
+                                Osian, Jodhpur
+                            </span>
+                            <div>
+                                <p class = "text">Osian (also spelt Osiyan) is an ancient town located in the Jodhpur District of Rajasthan state in western India. It is an oasis in the Thar Desert. The town is a panchayat village[2] and the headquarters for Osian tehsil.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "featured-item my-2 shadow">
+                        <img src = "images/featured-north-bondi-australia.jpg" alt = "featured place">
+                        <div class = "featured-item-content">
+                            <span>
+                                <i class = "fas fa-map-marker-alt"></i>
+                                School Of Yoga,Bihar
+                            </span>
+                            <div>
+                                <p class = "text">Bihar School of Yoga, located at Ganga Darshan Vishwa Yogapeeth, Munger.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "featured-item my-2 shadow">
+                        <img src = "images/featured-berlin-germany.jpg" alt = "featured place">
+                        <div class = "featured-item-content">
+                            <span>
+                                <i class = "fas fa-map-marker-alt"></i>
+                                Prag Mahal, Bhuj
+                            </span>
+                            <div>
+                                <p class = "text">The largest of the three palaces within the Darbargadh walled complex.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "featured-item my-2 shadow">
+                        <img src = "images/featured-khwaeng-wat-arun-thailand.jpg" alt = "featured place">
+                        <div class = "featured-item-content">
+                            <span>
+                                <i class = "fas fa-map-marker-alt"></i>
+                                Ponmudi Hills,Kerala
+                            </span>
+                            <div>
+                                <p class = "text">Ponmudi situated 61 km from Thiruvananthapuram city is an enchanting hill station destination famous for its mist covered hills</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "featured-item my-2 shadow">
+                        <img src = "images/featured-rome-italy.jpg" alt = "featured place">
+                        <div class = "featured-item-content">
+                            <span>
+                                <i class = "fas fa-map-marker-alt"></i>
+                                Bhimbetka Rock Shelters,Madhya Pradesh
+                            </span>
+                            <div>
+                                <p class = "text">The Bhimbetka rock shelters are an archaeological site in central India that spans the Paleolithic and Mesolithic periods, as well as the historic period.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "featured-item my-2 shadow">
+                        <img src = "images/featured-fuvahmulah-maldives.jpg" alt = "featured place">
+                        <div class = "featured-item-content">
+                            <span>
+                                <i class = "fas fa-map-marker-alt"></i>
+                                Jawai,Rajasthan
+                            </span>
+                            <div>
+                                <p class = "text">Leopard safari in Jawai Leopard conservation in Rajasthan at best price in Jawai and Bera. Jawai safaris is the only safari operator for booking leopard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end of featured section -->
+
+        <!-- services section -->
+<!--         <section id = "services" class = "py-4"> 
+            <div class = "container">
+                <div class = "title-wrap">
+                    <span class = "sm-title">know about services that we offer</span>
+                    <h2 class = "lg-title">Our services</h2>
+                </div>
+
+                <div class = "services-row">
+                    <div class = "services-item">
+                        <span class = "services-icon">
+                            <i class = "fas fa-hotel"></i>
+                        </span>
+                        <h3>Nearby Hotel</h3>
+                        <p class = "text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quo, totam repellat velit, dignissimos sequi error a minima architecto fugit nisi dolorum repellendus?</p>
+                        <a href = "#" class = "btn">Read more</a>
+                    </div>
+
+                    <div class = "services-item">
+                        <span class = "services-icon">
+                            <i class = "fas fa-map-marked-alt"></i>
+                        </span>
+                        <h3>nearby Hospital</h3>
+                        <p class = "text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quo, totam repellat velit, dignissimos sequi error a minima architecto fugit nisi dolorum repellendus?</p>
+                        <a href = "#" class = "btn">Read more</a>
+                    </div>
+
+                    <div class = "services-item">
+                        <span class = "services-icon">
+                            <i class = "fas fa-money-bill"></i>
+                        </span>
+                        <h3>Suitable Price</h3>
+                        <p class = "text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem quo, totam repellat velit, dignissimos sequi error a minima architecto fugit nisi dolorum repellendus?</p>
+                        <a href = "#" class = "btn">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </section>  -->
+        <!-- end of services section -->
+
+        <!-- testimonials section -->
+<!--         <section id = "testimonials" class = "py-4"> 
+            <div class = "container">
+                <div class = "title-wrap">
+                    <span class = "sm-title">what our clients say about us</span>
+                    <h2 class = "lg-title">testimonials</h2>
+                </div>
+
+                <div class = "test-row">
+                    <div class = "test-item">
+                        <p class = "text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda blanditiis, asperiores, velit iste eos officiis tempora magni quaerat quo consectetur expedita cum recusandae facere nam voluptate minus iusto eum. Delectus!</p>
+                        <div class = "test-item-info">
+                            <img src = "images/test-1.jpg" alt = "testimonial">
+                            <div>
+                                <h3>Ojass Dhadiwal</h3>
+                                <p class = "text">Trip to School Of Yoga,Bihar</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "test-item">
+                        <p class = "text">We Are Try To Showcasing Some Unknown Wonders Of India Which Has A Great Potential To Develop As A Tourist Destination</p>
+                        <div class = "test-item-info">
+                            <img src = "images/test-2.jpg" alt = "testimonial">
+                            <div>
+                                <h3>Samarth Patel</h3>
+                                <p class = "text">Trip to Osian,Jodhpur</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "test-item">
+                        <p class = "text">Deals always tend to be hard to beat on travel online. We've booked with them for years for this reason. On this occasion, it took a long while (many days) on a few occasions for travel online to return phone calls, we had to chase them up, and some minor details were incorrect on itineraries received</p>
+                        <div class = "test-item-info">
+                            <img src = "images/test-3.jpg" alt = "testimonial">
+                            <div>
+                                <h3>Ruchit Kochar</h3>
+                                <p class = "text">Trip to Prag Mahal,Bhuj</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>  -->
+        <!-- end of testimonials section -->
+
+        
+        
+
+  
+
+        <!-- footer -->
+        <footer class = "py-4">
+            <div class = "container footer-row">
+                <div class = "footer-item">
+                    <a href = "index.html" class = "site-brand">
+                        Trip<span>India</span>
+                    </a>
+                    <p class = "text">Our main motive behind building this website is to help both the tourists as well as the locals. We want to enrich people lives and experiences with fondful memories. With so many places left to explored, we simply can’t imagine the potential this project holds, and the innumerable people’s lives it would transform.</p>
+                </div>
+
+                <div class = "footer-item">
+                    <h2>Follow us on: </h2>
+                    <ul class = "social-links">
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href = "#">
+                                <i class = "fab fa-google-plus"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class = "footer-item">
+                    <h2>Team Member:</h2>
+                    <ul>
+                        <li><a href = "#">Vinayak Raj Ranjan</a></li>
+                        <li><a href = "#">Marri Bharadwaj</a></li>
+                        <li><a href = "#">Vidit Garg</a></li>
+                        <li><a href = "#">Samarth Patel</a></li>
+                        <li><a href = "#">Ojass Dhadiwal</a></li>
+                        <li><a href = "#">Ruchit Kochar</a></li>
+                        <li><a href = "#">Uzair Patel</a></li>
+                    </ul>
+                </div>
+
+                <div class = "subscribe-form footer-item">
+                    <h2>Subscribe for Newsletter!</h2>
+                    <form class = "flex">
+                        <input type = "email" placeholder="Enter Email" class = "form-control">
+                        <input type = "submit" class = "btn" value = "Subscribe">
+                    </form>
+                </div>
+            </div>
+        </footer>
+        <!-- end of footer -->
+
+        <!-- js -->
+        <script src = "js/script.js"></script>
+        <script>
+            // play/pause video
+            let video = document.querySelector('.video-wrapper video');
+            document.getElementById('play-btn').addEventListener('click', () => {
+                if(video.paused){
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        </script>
+    </body>
+</html>
